@@ -1,2 +1,2 @@
-# Functions
-Functions creating by me
+
+I wont to become one of the best web developers. 
