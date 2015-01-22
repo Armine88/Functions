@@ -1,0 +1,71 @@
+.parkContainer{
+	margin: 0;
+	margin-right: 10px;
+	width: 180px;
+	height: 180px;
+	border: 2px solid black;
+	padding: 10px;
+	float: left;
+}
+.addCellContainer{
+	width: 20px;
+	height: 20px;
+	border: 1px solid #cccccc;
+	color: #cccccc;
+	text-align: center;
+	cursor: pointer;
+}
+.addCellContainer:hover{
+	color:red;
+	border: 2px solid #aaaaaa;
+}
+
+.cellContainer{
+	margin: 0;
+	width: 260px;
+	height: 260px;
+	border: 2px solid black;
+	padding: 10px;
+	float: left;
+	display: none;
+}
+.cell{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #888888;
+}
+.cell_side{
+	margin: 0;
+	position: absolute;
+}
+.cell_left{
+	width: 8px;
+	height: 20px;
+	top:0;
+	left:0;
+}
+.cell_top{
+	width: 20px;
+	height: 8px;
+	top:0;
+	left:0;
+}
+.cell_right{
+	width: 8px;
+	height: 20px;
+	top:0;
+	left:12px;
+}
+.cell_bottom{
+	width: 20px;
+	height: 8px;
+	top:12px;
+	left:0;
+}
+.cell_side:hover{
+	background-color: #dddddd;
+	font-size: 10px;
+	cursor: pointer;
+}
+
