@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Car Parking</title>
+	<link rel="stylesheet" type="text/css" href="Car Parking.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="Car Parking.js"></script>
+	
+</head>
+<body>
+	<div class="parkContainer">
+		<div class="addCellContainer">+</div>
+		<br><br><br><br>
+		<span>10</span><input type="range" value="10" min="10" max="100" step="10" id="range"><span>100</span>
+		<p>Price of a cell is <span id="valBox">10</span> dram.</p>
+	</div>
+	<div class="cellContainer">
+		<div class="cell">
+			<div class="cell_left cell_side"></div>
+			<div class="cell_top cell_side"></div>
+			<div class="cell_right cell_side"></div>
+			<div class="cell_bottom cell_side"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var cell_sape=$('<div class="cell"><div class="cell_left cell_side"></div><div class="cell_top cell_side"></div><div class="cell_right cell_side"></div><div class="cell_bottom cell_side"></div></div>');
+		var p = new Park();
+		var cell_cont=new CellContainer();
+		$('#range').change(function(){
+			$('#valBox').text($(this).val());
+			p.setCellPrice($(this).val());
+			console.log(p.getCellPrice());
+		});
+		$(".addCellContainer").click(function(){
+			$(".cellContainer").show();
+			var cell=new Cell();
+			cell_cont.pushCell(cell);
+			console.log((cell_cont.getCellsArray()[0]).getXY());	
+		});
+		$(".cell_side").click(function(e){
+			console.log(e.target);
+			if($(e.target).attr("class")=="cell_left cell_side"){
+				console.log("left");
+			}
+			if($(e.target).attr("class")=="cell_top cell_side"){
+				console.log("top");
+			}
+			if($(e.target).attr("class")=="cell_right cell_side"){
+				console.log("right");
+			}
+			if($(e.target).attr("class")=="cell_bottom cell_side"){
+				console.log("bottom");
+			}
+		});
+	});
+
+  </script>
+</body>
+</html>
