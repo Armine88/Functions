@@ -1,3 +1,7 @@
+body {
+	margin: 0;
+	padding: 0;
+}
 .parkContainer{
 	margin: 0;
 	margin-right: 10px;
@@ -22,15 +26,16 @@
 
 .cellContainer{
 	margin: 0;
+	position: absolute;
+	top: 0;
+	left: 214px;
 	width: 260px;
 	height: 260px;
 	border: 2px solid black;
 	padding: 10px;
-	float: left;
 	display: none;
 }
 .cell{
-	position: absolute;
 	width: 20px;
 	height: 20px;
 	border: 1px solid #888888;
