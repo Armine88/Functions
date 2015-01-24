@@ -16,17 +16,21 @@
 		<p>Price of a cell is <span id="valBox">10</span> dram.</p>
 	</div>
 	<div class="cellContainer">
-		<div class="cell">
+		<!-- <div class="cell">
 			<div class="cell_left cell_side"></div>
 			<div class="cell_top cell_side"></div>
 			<div class="cell_right cell_side"></div>
 			<div class="cell_bottom cell_side"></div>
-		</div>
+		</div> -->
 	</div>
 
 	<script type="text/javascript">
 	$(document).ready(function(){
-		var cell_sape=$('<div class="cell"><div class="cell_left cell_side"></div><div class="cell_top cell_side"></div><div class="cell_right cell_side"></div><div class="cell_bottom cell_side"></div></div>');
+		var cell_shape;
+		var l=0;
+		var t=0;
+		cell_shape=$('<div class="cell"><div class="cell_left cell_side"></div><div class="cell_top cell_side"></div><div class="cell_right cell_side"></div><div class="cell_bottom cell_side"></div></div>');
+		
 		var p = new Park();
 		var cell_cont=new CellContainer();
 		$('#range').change(function(){
@@ -36,23 +40,96 @@
 		});
 		$(".addCellContainer").click(function(){
 			$(".cellContainer").show();
+			$(".cellContainer").append(cell_shape);
+				cell_shape.css({
+					"position": "absolute",
+					"top": "0",
+					"left": "0"
+				});
 			var cell=new Cell();
 			cell_cont.pushCell(cell);
-			console.log((cell_cont.getCellsArray()[0]).getXY());	
+			console.log((cell_cont.getCellsArray()[0]).getXY());
+			// console.log($(".cellContainer").find(".cell_side"));
+			// ($(".cellContainer").find(".cell_side")).click(function(e){
+
+			// console.log($(e.target));
+			// if($(e.target).attr("class")=="cell_right cell_side"){
+			// 	console.log("right");
+			// 	l+=22;
+			// 	$(".cellContainer").append(cell_shape[1]);
+			// 	cell_shape[1].css({
+			// 		"top": "0",
+			// 		"left": l+"px"
+			// 	});
+				
+			// }
+			// });	
+			
 		});
-		$(".cell_side").click(function(e){
-			console.log(e.target);
-			if($(e.target).attr("class")=="cell_left cell_side"){
-				console.log("left");
-			}
-			if($(e.target).attr("class")=="cell_top cell_side"){
-				console.log("top");
-			}
-			if($(e.target).attr("class")=="cell_right cell_side"){
+
+		// $(".cell_side").click(function(e){
+		// 	console.log(e.target);
+		// 	if($(e.target).attr("class")=="cell_left cell_side"){
+				
+		// 		console.log("left");
+		// 	}
+		// 	if($(e.target).attr("class")=="cell_top cell_side"){
+		// 		console.log("top");
+		// 	}
+		// 	if($(e.target).attr("class")=="cell_right cell_side"){
+		// 		console.log("right");
+				
+		// 		$(".cellContainer").append(cell_shape);
+		// 		cell_shape.css({
+		// 			"top": "0",
+		// 			"left": l+"px"
+		// 		});
+				
+		// 	}
+		// 	if($(e.target).attr("class")=="cell_bottom cell_side"){
+		// 		console.log("bottom");
+		// 	}
+		// });
+		
+		// (cell_shape[0].children()).click(function(ev){
+		// 	console.log($($(ev.target).parent()));
+		// 	console.log(cell_shape[0].children());
+		// 	l+=22;
+		// 	if($(ev.target).attr("class")=="cell_right cell_side"){
+		// 		console.log("right");
+				
+		// 		$(".cellContainer").append(cell_shape[1]);
+		// 		cell_shape[1].css({
+		// 			"top": "0",
+		// 			"left": l+"px"
+		// 		});
+				
+		// 	}
+			
+		// });
+		(cell_shape.children()).click(function(ev){
+			console.log("a");
+			if($(ev.target).attr("class")=="cell_right cell_side"){
 				console.log("right");
+				l+=22;
+				$(".cellContainer").append(cell_shape);
+				cell_shape.css({
+					"position": "absolute",
+					"top": t+"px",
+					"left": l+"px"
+				});
+				
 			}
-			if($(e.target).attr("class")=="cell_bottom cell_side"){
+			if($(ev.target).attr("class")=="cell_bottom cell_side"){
 				console.log("bottom");
+				t+=22;
+				$(".cellContainer").append(cell_shape);
+				cell_shape.css({
+					"position": "absolute",
+					"top": t+"px",
+					"left": l+"px"
+				});
+			
 			}
 		});
 	});
